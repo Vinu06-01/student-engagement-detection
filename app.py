@@ -146,7 +146,7 @@ def predict_status(frame):
     face = crop_largest_face(frame)
     if face is None:
         return "disengaged", 0, False
-    image = cv2.resize(face, (224, 224))
+    image = cv2.resize(face, (160, 160))
     image = preprocess_input(image.astype(np.float32))
     image = np.expand_dims(image, axis=0)
     prediction = model.predict(image, verbose=0)[0]
