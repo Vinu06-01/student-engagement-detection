@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="topbar">
+    <div>
+        <span class="badge">Student Dashboard</span>
+        <h1>{{ student["name"] }}</h1>
+        <p>{{ student["roll_no"] }} · {{ student["branch"] }}</p>
+    </div>
+    <a class="button secondary" href="{{ url_for('logout') }}">Logout</a>
+</nav>
+<section class="dashboard-grid">
+    <div class="card camera-card">
+        <h2>Live Camera Engagement Check</h2>
+        <video id="camera" autoplay playsinline muted></video>
+        <canvas id="snapshot" class="hidden"></canvas>
+        <p id="cameraMessage">Allow camera access to begin live detection.</p>
+    </div>
+    <div class="card status-card">
+        <h2>Current Status</h2>
+        <div id="statusText" class="status-large">Waiting</div>
+        <div id="confidenceText" class="muted">Confidence: 0%</div>
+        <div class="metric-list">
+            <div><span>Attention Score</span><strong id="scoreText">0%</strong></div>
+            <div><span>Final Outcome</span><strong id="outcomeText">Waiting</strong></div>
+            <div><span>Last Updated</span><strong id="updatedText">-</strong></div>
+        </div>
+    </div>
+</section>
+<script src="{{ url_for('static', filename='camera.js') }}"></script>
+{% endblock %}

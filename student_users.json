@@ -1,0 +1,26 @@
+{
+  "24261A0501": {
+    "name": "VINUTEJ",
+    "roll_no": "24261A0501",
+    "branch": "CSE",
+    "phone": "9606715511",
+    "email": "vinutej@gmail.com",
+    "password_hash": "9319ad785c8eb8e7347f5fb5d37d3da9527dba6e88fe2b872d128e08f2a608a4"
+  },
+  "24261A0545": {
+    "name": "HARSHITH",
+    "roll_no": "24261A0545",
+    "branch": "CSE",
+    "phone": "7993811799",
+    "email": "harshith@gmail.com",
+    "password_hash": "f75a16640ec4ef31b8b5aceae208388c9b08a87a84df7d8da7e1b4d50ab109e9"
+  },
+  "22261A0523": {
+    "name": "yuvraj",
+    "roll_no": "22261A0523",
+    "branch": "cse",
+    "phone": "9420480300",
+    "email": "yjupaka@gmail.com",
+    "password_hash": "55f1c5b7f0c83f94c46e188eace8fe73c923d15c2ef0e1cbe94b8a6976d6f745"
+  }
+}

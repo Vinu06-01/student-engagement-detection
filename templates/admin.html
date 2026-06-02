@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="topbar">
+    <div>
+        <span class="badge">Admin Dashboard</span>
+        <h1>Classroom Engagement Command Center</h1>
+        <p>Track all students using the website camera system.</p>
+    </div>
+    <div class="actions">
+        <button id="resetBtn" class="button danger">Reset Class</button>
+        <a class="button secondary" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+<section class="metrics">
+    <div class="card"><span>Total Students</span><strong id="totalStudents">0</strong></div>
+    <div class="card"><span>Engaged</span><strong id="engagedCount">0</strong></div>
+    <div class="card"><span>Neutral</span><strong id="neutralCount">0</strong></div>
+    <div class="card"><span>Disengaged</span><strong id="disengagedCount">0</strong></div>
+    <div class="card"><span>Class Score</span><strong id="classScore">0%</strong></div>
+</section>
+<section class="card table-card">
+    <h2>All Students Data</h2>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th><th>Roll Number</th><th>Branch</th><th>Phone</th><th>Email</th>
+                    <th>Login Status</th><th>Current Status</th><th>Confidence</th><th>Detected Frames</th>
+                    <th>Total Checks</th><th>Engaged</th><th>Neutral</th><th>Disengaged</th>
+                    <th>Attention Score</th><th>Final Outcome</th><th>Last Updated</th>
+                    <th>Logged In At</th><th>Logged Out At</th>
+                </tr>
+            </thead>
+            <tbody id="studentsTable"></tbody>
+        </table>
+    </div>
+</section>
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+{% endblock %}

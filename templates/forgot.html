@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="auth-layout single">
+    <form class="card auth-card" method="post">
+        <span class="badge">Password Recovery</span>
+        <h2>Reset Student Password</h2>
+        {% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+        {% if success %}<div class="alert success">{{ success }}</div>{% endif %}
+        <label>Registered Roll Number</label>
+        <input name="roll_no" maxlength="10" required>
+        <label>Registered Phone Number</label>
+        <input name="phone" maxlength="10" required>
+        <label>New Password</label>
+        <input name="password" type="password" required>
+        <label>Confirm New Password</label>
+        <input name="confirm_password" type="password" required>
+        <button type="submit">Reset Password</button>
+        <div class="links"><a href="{{ url_for('login') }}">Back to login</a></div>
+    </form>
+</section>
+{% endblock %}

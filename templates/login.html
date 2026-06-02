@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="auth-layout">
+    <div class="brand-panel">
+        <span class="badge">Secure Access</span>
+        <h1>AI Student Engagement Detection</h1>
+        <p>Students join from the browser. Admin tracks live engagement from one dashboard.</p>
+    </div>
+    <form class="card auth-card" method="post">
+        <h2>Login</h2>
+        {% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+        <label>Login as</label>
+        <div class="role-row">
+            <label><input type="radio" name="role" value="student" checked> Student</label>
+            <label><input type="radio" name="role" value="admin"> Admin</label>
+        </div>
+        <div class="student-fields">
+            <label>Roll Number</label>
+            <input name="roll_no" maxlength="10">
+        </div>
+        <div class="admin-fields hidden">
+            <label>Admin User ID</label>
+            <input name="user_id">
+        </div>
+        <label>Password</label>
+        <input name="password" type="password" required>
+        <button type="submit">Login</button>
+        <div class="links">
+            <a href="{{ url_for('register') }}">Create student account</a>
+            <a href="{{ url_for('forgot_password') }}">Forgot password?</a>
+        </div>
+    </form>
+</section>
+<script>
+const radios = document.querySelectorAll('input[name="role"]');
+const studentFields = document.querySelector('.student-fields');
+const adminFields = document.querySelector('.admin-fields');
+radios.forEach(radio => radio.addEventListener('change', () => {
+  const isAdmin = radio.value === 'admin' && radio.checked;
+  studentFields.classList.toggle('hidden', isAdmin);
+  adminFields.classList.toggle('hidden', !isAdmin);
+}));
+</script>
+{% endblock %}
