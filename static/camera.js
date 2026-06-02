@@ -20,29 +20,25 @@ facingMode: "user"
 audio: false
 });
 
-```
+
     video.srcObject = stream;
 
-    message.textContent =
-        "Camera active. Detection runs automatically every 5 seconds.";
+    message.textContent = "Camera active. Detection runs automatically every 5 seconds.";
 
     setInterval(sendFrame, 5000);
     setInterval(refreshStatus, 5000);
 
 } catch (error) {
-
     console.error("Camera Error:", error);
-
-    message.textContent =
-        "Camera permission is required for live engagement detection.";
+    message.textContent = "Camera permission is required for live engagement detection.";
 }
-```
+
 
 }
 
 async function sendFrame() {
 
-```
+
 if (predictionRunning) return;
 if (!video.videoWidth) return;
 
@@ -55,13 +51,7 @@ try {
 
     const context = canvas.getContext("2d");
 
-    context.drawImage(
-        video,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const image = canvas.toDataURL("image/jpeg", 0.4);
 
@@ -96,13 +86,13 @@ try {
     predictionRunning = false;
 
 }
-```
+
 
 }
 
 async function refreshStatus() {
 
-```
+
 try {
 
     const response = await fetch("/api/student-status");
@@ -127,7 +117,7 @@ try {
     console.error("Status Refresh Error:", error);
 
 }
-```
+
 
 }
 
